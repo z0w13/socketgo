@@ -23,8 +23,7 @@ SocketGO.prototype.connect = function() {
 
   sock.addEventListener('error', function(event) {
     setTimeout(function() {
-      console.info("Error in websocket connection, reconnecting");
-      that.connect();
+      console.info("Error in websocket connection");
     }, 1000);
   });
   sock.addEventListener('close', function(event) {
