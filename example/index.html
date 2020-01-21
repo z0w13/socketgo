@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SocketGO Example</title>
+  </head>
+  <body>
+    <script src="/socketgo.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var sock = new SocketGO('ws://localhost:8080/ws');
+        sock.handle('hello', function(sock, payload) {
+          console.log(payload);
+          sock.send('hello', 'server');
+        });
+        sock.connect();
+      });
+    </script>
+  </body>
+</html>
